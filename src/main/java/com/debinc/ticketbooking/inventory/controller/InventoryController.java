@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.debinc.ticketbooking.inventory.response.EventInventoryResponse;
 import com.debinc.ticketbooking.inventory.service.InventoryService;
+import org.springframework.web.bind.annotation.GetMapping;
+
 
 @RestController
 @RequestMapping("/api/v1")
@@ -18,7 +20,9 @@ public class InventoryController {
         this.inventoryService = inventoryService;
     }
     
+    @GetMapping("inventory/events")
     public List<EventInventoryResponse> getAllEvents(){
         return inventoryService.getAllEvents();
     }
+
 }
